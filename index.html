@@ -137,6 +137,8 @@ if(av)c.ag=new Date(av).getTime();
 if(dest==="work"&&prev!=="work")c.s=Date.now();
 tab=dest;clearForm();save();render()};
 function tick(){var n=new Date();$("clock").textContent=pad(n.getHours())+":"+pad(n.getMinutes())+":"+pad(n.getSeconds());render()}
+var hm2=location.hash.match(/editar=([^&]+)/);
+if(hm2){senha=decodeURIComponent(hm2[1]);try{localStorage.setItem("oficina_senha",senha)}catch(e){}history.replaceState(null,"",location.pathname)}
 tick();pull();setInterval(tick,1000);setInterval(pull,5000);
 </script>
 </body>
